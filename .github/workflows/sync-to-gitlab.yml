@@ -33,11 +33,12 @@ jobs:
           fetch-depth: 0
       
       # Runs the latest yaml file  and shell command script from action-pack/gitlab-sync
-      # Make sure url is correctly set to target repo's url
-      # username is GitLab username of the token, name the access token as your current GitHub username
-      # token is obtained from GitLab repo's group and entered into GitHub repo's settings as secrets
+      # username is GitLab username stored in GitHub org's secrets
+      # token is obtained from GitLab repo's group and entered into GitHub org's settings as secrets
+      # Make sure url is correctly set to target repo's URL
       - uses: action-pack/gitlab-sync@master
         with:
-          username: ${{ github.actor }}
-          url: https://gitlab.com/${{ github.repository }}.git
+          username: ${{ secrets.GITLAB_USERNAME }}
           token: ${{ secrets.GITLAB_TOKEN }}
+          url: https://gitlab.com/${{ github.repository }}.git
+          
