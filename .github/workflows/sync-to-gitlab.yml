@@ -34,7 +34,8 @@ jobs:
       
       # Runs the latest yaml file  and shell command script from action-pack/gitlab-sync
       # username is GitLab username stored in GitHub org's secrets
-      # token is obtained from GitLab repo's group and entered into GitHub org's settings as secrets
+      # token is obtained from GitLab repo's group, or GitLab User's profile settings, 
+      # and then entered into GitHub org's settings as secrets
       # Make sure url is correctly set to target repo's URL
       - uses: action-pack/gitlab-sync@master
         with:
